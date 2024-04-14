@@ -11,12 +11,17 @@
 Создайте в своём репозитории каталог branching и в нём два файла — merge.sh и rebase.sh — с содержимым:
 
 `#!/bin/bash
+
 `# display command line options
 
 `count=1
+
 `for param in "$*"; do
+
 `    echo "\$* Parameter #$count = $param"
+
 `    count=$(( $count + 1 ))
+
 `done
 
 Этот скрипт отображает на экране все параметры одной строкой, а не разделяет их.
@@ -31,14 +36,19 @@
 
 **Шаг 2.** Замените в ней содержимое файла merge.sh на:
 
-#!/bin/bash
-# display command line options
+`#!/bin/bash
 
-count=1
-for param in "$@"; do
-    echo "\$@ Parameter #$count = $param"
-    count=$(( $count + 1 ))
-done
+`# display command line options
+
+`count=1
+
+`for param in "$@"; do
+
+`    echo "\$@ Parameter #$count = $param"
+
+`    count=$(( $count + 1 ))
+
+`done
 
 ![alt text](https://github.com/MaratKN/git-03-branching/blob/main/2.jpg)
 
@@ -48,15 +58,21 @@ done
 
 **Шаг 4.** Разработчик подумал и решил внести ещё одно изменение в merge.sh:
 
-#!/bin/bash
-# display command line options
+`#!/bin/bash
 
-count=1
-while [[ -n "$1" ]]; do
-    echo "Parameter #$count = $1"
-    count=$(( $count + 1 ))
-    shift
-done
+`# display command line options
+
+`count=1
+
+`while [[ -n "$1" ]]; do
+
+`    echo "Parameter #$count = $1"
+
+`    count=$(( $count + 1 ))
+
+`    shift
+
+`done
 
 Теперь скрипт будет отображать каждый переданный ему параметр отдельно.
 
@@ -71,16 +87,21 @@ done
 
 **Шаг 2.** Предположим, что пока мы работали над веткой git-merge, кто-то изменил main. Для этого изменим содержимое файла rebase.sh на:
 
-#!/bin/bash
-# display command line options
+`#!/bin/bash
 
-count=1
-for param in "$@"; do
-    echo "\$@ Parameter #$count = $param"
-    count=$(( $count + 1 ))
-done
+`# display command line options
 
-echo "====="
+`count=1
+
+`for param in "$@"; do
+
+`    echo "\$@ Parameter #$count = $param"
+
+`    count=$(( $count + 1 ))
+
+`done
+
+`echo "====="
 
 В этом случае скрипт тоже будет отображать каждый параметр в новой строке.
 
@@ -101,16 +122,21 @@ echo "====="
 
 **Шаг 3.** И изменим содержимое файла rebase.sh на следующее, тоже починив скрипт, но немного в другом стиле:
 
-#!/bin/bash
-# display command line options
+`#!/bin/bash
 
-count=1
-for param in "$@"; do
-    echo "Parameter: $param"
-    count=$(( $count + 1 ))
-done
+`# display command line options
 
-echo "====="
+`count=1
+
+`for param in "$@"; do
+
+`    echo "Parameter: $param"
+
+`    count=$(( $count + 1 ))
+
+`done
+
+`echo "====="
 
 **Шаг 4.** Отправим эти изменения в ветку git-rebase с комментарием git-rebase 1.
 
