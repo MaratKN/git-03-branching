@@ -10,19 +10,19 @@
 
 Создайте в своём репозитории каталог branching и в нём два файла — merge.sh и rebase.sh — с содержимым:
 
-`#!/bin/bash
+```#!/bin/bash
 
-`# display command line options
+# display command line options
 
-`count=1
+count=1
 
-`for param in "$*"; do
+for param in "$*"; do
 
-`    echo "\$* Parameter #$count = $param"
+    echo "\$* Parameter #$count = $param"
 
-`    count=$(( $count + 1 ))
+    count=$(( $count + 1 ))
 
-`done
+done```
 
 Этот скрипт отображает на экране все параметры одной строкой, а не разделяет их.
 
